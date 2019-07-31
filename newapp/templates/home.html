@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=exqldfnwll"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&display=swap" rel="stylesheet"><!-- 글꼴 -->
+
+    <style>
+    h3 {font-family: 'Noto Serif KR', serif;}
+    h4 {font-family: 'Noto Serif KR', serif;}
+    p {font-family: 'Noto Serif KR', serif;}
+    </style>
+
+</head>
+<body>
+
+
+
+{% extends 'base.html' %}
+{% block content %}
+
+    <div id="map" style="width:50%;height:400px;"></div>
+
+        <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(36.3679381,127.3442986),
+            zoom: 10
+        };
+
+        var map = new naver.maps.Map('map', mapOptions);
+        </script>
+
+    <div class="container">
+    
+    {%for blog_post in blog_posts %}
+    <br>
+        <h3><a href="{% url 'read' blog_post.id %}">{{ blog_post.title }}</a></h1> 
+        <!-- a href를 넣으면 링크가 들어간다. -->
+        <p>{{ blog_post.pub_date}}</p>
+        <h4>{{ blog_post.body}}</h2>
+    <br><br>
+    
+    {% endfor %}
+{% endblock %}
+
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+<!--내이름은 조아름이야 아름아름해 -->

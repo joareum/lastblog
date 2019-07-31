@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% url 'create' %}" id="post-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div>
+        <h4>아름아름한 제목</h4>
+        <input type="text" name="title">
+    </div>
+    <div>
+        <h4>아름아름한 내용</h4>
+        <textarea name="body" cols="30" rows="10"></textarea>
+    </div>
+    <div>
+        <input type="submit" value="글쓰기">
+    </div>
+    <div class="input-container">
+     <input type="file" name="post_image">
+     </div>
+    </form>
+    {% endblock %}
+</body>
+</html>

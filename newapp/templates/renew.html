@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <form action="{% url 'update' renew.id %}" id="post-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+    <div>
+        <h4>앎음알음 제목</h4>
+        <input type="text" name="title" value="{{ renew.title }}">
+    </div>
+    <div>
+        <h4>앎앎 내용</h4>
+        <textarea name="body" cols="30" rows="10">{{ renew.body }}</textarea>
+    </div>
+    <div>
+        <input type="submit" value="수정하기">
+    </div>
+    
+    </form>
+    {% endblock %}
+</body>
